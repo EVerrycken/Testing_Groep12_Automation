@@ -10,19 +10,23 @@ import java.util.List;
 
 public class Add extends RequestHandler{
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        String naam = request.getParameter("naam");
-        int prijs = Integer.parseInt(request.getParameter("prijs"));
-        String extra = request.getParameter("extra");
-        Eten eten = new Eten();
-        List<String> errors = new ArrayList<String>();
-        setEtenNaam(naam, errors, eten);
-        setEtenPrijs(prijs, errors, eten);
-        if(extra != null) setExtrainfo(extra, errors, eten);
-        addEtenToDb(eten, errors);
-        if(errors.size() > 0){
-            request.setAttribute("errors", errors);
+        if(request.getParameter("add") != null){
+            String naam = request.getParameter("naam");
+            int prijs = Integer.parseInt(request.getParameter("prijs"));
+            String extra = request.getParameter("extra");
+            Eten eten = new Eten();
+            List<String> errors = new ArrayList<String>();
+            setEtenNaam(naam, errors, eten);
+            setEtenPrijs(prijs, errors, eten);
+            if(extra != null) setExtrainfo(extra, errors, eten);
+            addEtenToDb(eten, errors);
+            if(errors.size() > 0){
+                request.setAttribute("errors", errors);
+            }
+            return "index.jsp";
+        }else{
+            return "add.jsp";
         }
-        return "index.jsp";
     }
 
     private void setExtrainfo(String extra, List<String> errors, Eten eten) {

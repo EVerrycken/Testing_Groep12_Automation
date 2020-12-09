@@ -7,16 +7,19 @@ import java.util.List;
 
 public class Remove extends RequestHandler{
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        String naam = request.getParameter("naam");
-        List<String> errors = new ArrayList<String>();
-        if(naam != null){
-            try{
-                etenDb.removeEten(naam);
-            }catch (Exception e){
-                errors.add(e.getMessage());
+        if(request.getParameter("remove") != null){
+            String naam = request.getParameter("naam");
+            List<String> errors = new ArrayList<String>();
+            if(naam != null){
+                try{
+                    etenDb.removeEten(naam);
+                }catch (Exception e){
+                    errors.add(e.getMessage());
+                }
             }
+            if(errors.size() > 0) request.setAttribute("errors", errors);
+            return "index.jsp";
         }
-        if(errors.size() > 0) request.setAttribute("errors", errors);
-        return "index.jsp";
+        return "remove.jsp";
     }
 }
