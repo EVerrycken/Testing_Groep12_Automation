@@ -25,6 +25,8 @@ public class EtenDb {
         }
         if(y >= 0){
             eten.remove(y);
+        }else{
+            throw new IllegalArgumentException("eten niet gevonden");
         }
     }
 
