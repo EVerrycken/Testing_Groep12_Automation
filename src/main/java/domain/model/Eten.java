@@ -2,7 +2,7 @@ package domain.model;
 
 public class Eten {
     public String naam;
-    public int Prijs;
+    public int prijs;
     public String extrainfo;
 
     public Eten(String naam, int prijs, String extrainfo){
@@ -22,7 +22,7 @@ public class Eten {
         if(prijs < 0 || prijs > 20){
             throw new IllegalArgumentException("prijs moet meer dan 0 en minder dan 20 euro zijn");
         }
-        Prijs = prijs;
+        prijs = prijs;
     }
 
     public String getNaam() {
@@ -41,6 +41,6 @@ public class Eten {
     }
 
     public int getPrijs() {
-        return Prijs;
+        return prijs;
     }
 }
