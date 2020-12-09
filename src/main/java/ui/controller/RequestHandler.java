@@ -1,7 +1,6 @@
 package ui.controller;
 
 import domain.db.EtenDb;
-import domain.model.Eten;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
