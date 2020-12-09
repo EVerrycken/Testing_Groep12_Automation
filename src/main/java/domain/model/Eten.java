@@ -2,7 +2,7 @@ package domain.model;
 
 public class Eten {
     public String naam;
-    public int Prijs;
+    public int prijs;
     public String extrainfo;
 
     public Eten(String naam, int prijs, String extrainfo){
