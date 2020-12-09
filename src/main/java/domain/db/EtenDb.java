@@ -5,7 +5,7 @@ import domain.model.Eten;
 import java.util.ArrayList;
 
 public class EtenDb {
-    public ArrayList<Eten> eten = new ArrayList<>();
+    public ArrayList<Eten> eten = new ArrayList<Eten>();
 
     public EtenDb(){
     }
@@ -26,6 +26,10 @@ public class EtenDb {
         if(y >= 0){
             eten.remove(y);
         }
+    }
+
+    public ArrayList<Eten> getEten(){
+        return eten;
     }
 
 }
