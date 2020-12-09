@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @javax.servlet.annotation.WebServlet("Controller")
-public class Servlet extends javax.servlet.http.HttpServlet {
+public class Controller extends javax.servlet.http.HttpServlet {
     HandlerFactory handlerFactory = new HandlerFactory();
     EtenDb etenDb = new EtenDb();
 
