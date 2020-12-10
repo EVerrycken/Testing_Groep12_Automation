@@ -1,9 +1,9 @@
 package domain.model;
 
 public class Eten {
-    public String naam;
-    public int prijs;
-    public String extrainfo;
+    private String naam;
+    private int prijs;
+    private String extrainfo;
 
     public Eten(String naam, int prijs, String extrainfo){
         setNaam(naam);
@@ -15,32 +15,35 @@ public class Eten {
     }
 
     public void setNaam(String naam) {
+        if (naam.trim().isEmpty()){
+            throw new DomainException("Naam mag niet leeg zijn");
+        }
         this.naam = naam;
     }
 
-    public void setPrijs(int prijs) {
-        if(prijs < 0 || prijs > 20){
-            throw new IllegalArgumentException("prijs moet meer dan 0 en minder dan 20 euro zijn");
-        }
-        prijs = prijs;
+    public String getNaam() {
+        return this.naam;
     }
 
-    public String getNaam() {
-        if(naam.trim().isEmpty()){
-            throw new IllegalArgumentException("naam mag niet leeg zijn");
+    public void setPrijs(int prijs) {
+        if (prijs < 0 || prijs > 20){
+            throw new DomainException("Prijs moet meer dan 0 en minder dan 20 euro zijn");
         }
-        return naam;
+        this.prijs = prijs;
+    }
+
+    public int getPrijs() {
+        return this.prijs;
     }
 
     public void setExtrainfo(String extrainfo) {
+        if (extrainfo.trim().isEmpty()) {
+            throw new DomainException("Extra info mag niet leeg zijn");
+        }
         this.extrainfo = extrainfo;
     }
 
     public String getExtrainfo() {
-        return extrainfo;
-    }
-
-    public int getPrijs() {
-        return prijs;
+        return this.extrainfo;
     }
 }

@@ -1,22 +1,17 @@
 package ui.controller;
 
-
 import domain.db.EtenDb;
 
 public class HandlerFactory {
-
-    public HandlerFactory(){
-    }
-
-    public RequestHandler getHandler(String handlerName, EtenDb db) {
-        RequestHandler handler = null;
-        try{
-            Class handlerClass = Class.forName("ui.controller."+ handlerName);
+    public RequestHandler getHandler(String handlerName, EtenDb etenDb) {
+        RequestHandler handler;
+        try {
+            Class handlerClass = Class.forName("ui.controller." + handlerName);
             Object handlerObject = handlerClass.getConstructor().newInstance();
             handler = (RequestHandler) handlerObject;
-            handler.setModel(db);
-        }catch (Exception e) {
-            throw new RuntimeException("Onbekende Pagina");
+            handler.setModel(etenDb);
+        } catch (Exception e) {
+            throw new RuntimeException("Deze pagina bestaat niet");
         }
         return handler;
     }

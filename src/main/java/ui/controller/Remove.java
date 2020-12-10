@@ -1,25 +1,25 @@
 package ui.controller;
 
+import domain.db.DbException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Remove extends RequestHandler{
+public class Remove extends RequestHandler {
+    @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        if(request.getParameter("remove") != null){
-            String naam = request.getParameter("naam");
-            List<String> errors = new ArrayList<String>();
-            if(naam != null){
-                try{
-                    etenDb.removeEten(naam);
-                }catch (Exception e){
-                    errors.add(e.getMessage());
-                }
+        String naam = request.getParameter("naam");
+        List<String> errors = new ArrayList<>();
+        if (naam != null) {
+            try {
+                etenDb.removeEten(naam);
+                return "Controller?command=Home";
+            } catch (DbException e) {
+                errors.add(e.getMessage());
             }
-            if(errors.size() > 0) request.setAttribute("errors", errors);
-            return "index.jsp";
         }
-        return "remove.jsp";
+        return "Controller?command=ToRemoveJsp";
     }
 }

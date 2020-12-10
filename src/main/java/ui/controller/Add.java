@@ -1,63 +1,61 @@
 package ui.controller;
 
-import domain.db.EtenDb;
+import domain.db.DbException;
+import domain.model.DomainException;
 import domain.model.Eten;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Add extends RequestHandler{
+    @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        if(request.getParameter("add") != null){
-            String naam = request.getParameter("naam");
-            int prijs = Integer.parseInt(request.getParameter("prijs"));
-            String extra = request.getParameter("extra");
-            Eten eten = new Eten();
-            List<String> errors = new ArrayList<String>();
-            setEtenNaam(naam, errors, eten);
-            setEtenPrijs(prijs, errors, eten);
-            if(extra != null) setExtrainfo(extra, errors, eten);
-            addEtenToDb(eten, errors);
-            if(errors.size() > 0){
-                request.setAttribute("errors", errors);
+        Eten eten = new Eten();
+        List<String> errors = new ArrayList<>();
+        setEtenNaam(eten,request,errors);
+        setEtenPrijs(eten,request,errors);
+        setExtrainfo(eten,request,errors);
+
+        if (errors.size() == 0) {
+            try {
+                etenDb.addEten(eten);
+                return "Controller?command=Home";
+            } catch (DbException e) {
+                errors.add(e.getMessage());
             }
-            return "index.jsp";
-        }else{
-            return "add.jsp";
         }
+        request.setAttribute("errors",errors);
+        return "Controller?command=ToAddJsp";
     }
 
-    private void setExtrainfo(String extra, List<String> errors, Eten eten) {
-        try{
-            eten.setExtrainfo(extra);
-        }catch (Exception e){
-            errors.add(e.getMessage());
-        }
-    }
-
-    public void setEtenNaam(String naam, List<String> errors, Eten eten){
+    private void setEtenNaam(Eten eten, HttpServletRequest request, List<String> errors) {
+        String naam = request.getParameter("naam");
         try{
             eten.setNaam(naam);
-        }catch (Exception e){
+        }catch (DomainException e){
             errors.add(e.getMessage());
         }
     }
 
-    public void setEtenPrijs(int prijs, List<String> errors, Eten eten){
+    public void setEtenPrijs(Eten eten, HttpServletRequest request, List<String> errors){
+        int prijs = Integer.parseInt(request.getParameter("prijs"));
         try{
             eten.setPrijs(prijs);
-        }catch (Exception e){
+        }catch (DomainException e){
             errors.add(e.getMessage());
         }
     }
 
-    public void addEtenToDb(Eten eten, List<String> errors){
-        try{
-            etenDb.addEten(eten);
-        }catch (Exception e){
-            errors.add(e.getMessage());
+    public void setExtrainfo(Eten eten, HttpServletRequest request, List<String> errors){
+        String extraInfo = request.getParameter("extraInfo");
+        if (extraInfo != null) {
+            try{
+                eten.setExtrainfo(extraInfo);
+            }catch (DomainException e){
+                errors.add(e.getMessage());
+            }
         }
     }
 }
+
