@@ -20,11 +20,7 @@ public class EtenDb {
         if (naam.trim().isEmpty()) {
             throw new DbException("Geen naam gegeven");
         }
-        for (Eten e:eten) {
-            if(e.getNaam().equals(naam)){
-                eten.remove(e);
-            }
-        }
+        eten.removeIf(e->e.getNaam().equals(naam));
     }
 
     public ArrayList<Eten> getEten(){

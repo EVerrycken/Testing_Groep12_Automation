@@ -39,8 +39,8 @@ public class Add extends RequestHandler{
     }
 
     public void setEtenPrijs(Eten eten, HttpServletRequest request, List<String> errors){
-        int prijs = Integer.parseInt(request.getParameter("prijs"));
         try{
+            int prijs = Integer.parseInt(request.getParameter("prijs"));
             eten.setPrijs(prijs);
         }catch (DomainException e){
             errors.add(e.getMessage());

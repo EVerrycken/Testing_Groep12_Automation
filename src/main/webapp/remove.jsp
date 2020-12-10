@@ -13,7 +13,7 @@
     <h1><span>Automation</span></h1>
     <nav>
         <ul>
-            <li><a href="Controller?Home">Overview</a></li>
+            <li><a href="Controller?command=Home">Overview</a></li>
             <li><a href="Controller?command=ToAddJsp">Add</a></li>
             <li id="actual"><a href="Controller?command=ToRemoveJsp">Remove</a></li>
         </ul>

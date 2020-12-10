@@ -13,7 +13,7 @@
     <h1><span>Automation</span></h1>
     <nav>
         <ul>
-            <li id="actual"><a href="Controller?Home">Overview</a></li>
+            <li id="actual"><a href="Controller?command=Home">Overview</a></li>
             <li><a href="Controller?command=ToAddJsp">Add</a></li>
             <li><a href="Controller?command=ToRemoveJsp">Remove</a></li>
         </ul>
@@ -32,7 +32,7 @@
                 <tr>
                     <td><c:out value='${eten.naam}'/></td>
                     <td><c:out value='${eten.prijs}'/></td>
-                    <td><c:out value='${eten.extraInfo}'/></td>
+                    <td><c:out value='${eten.extrainfo}'/></td>
                 </tr>
             </c:forEach>
         </table>
