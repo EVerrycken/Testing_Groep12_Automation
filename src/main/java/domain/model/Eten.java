@@ -2,10 +2,10 @@ package domain.model;
 
 public class Eten {
     private String naam;
-    private int prijs;
+    private double prijs;
     private String extrainfo;
 
-    public Eten(String naam, int prijs, String extrainfo){
+    public Eten(String naam, double prijs, String extrainfo){
         setNaam(naam);
         setPrijs(prijs);
         setExtrainfo(extrainfo);
@@ -25,14 +25,14 @@ public class Eten {
         return this.naam;
     }
 
-    public void setPrijs(int prijs) {
+    public void setPrijs(double prijs) {
         if (prijs < 0 || prijs > 20){
             throw new DomainException("Prijs moet meer dan 0 en minder dan 20 euro zijn");
         }
         this.prijs = prijs;
     }
 
-    public int getPrijs() {
+    public double getPrijs() {
         return this.prijs;
     }
 
