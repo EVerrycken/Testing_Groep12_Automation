@@ -15,6 +15,7 @@ public class Add extends RequestHandler{
         List<String> errors = new ArrayList<>();
         setEtenNaam(eten,request,errors);
         setEtenPrijs(eten,request,errors);
+        setEtenCategorie(eten, request, errors);
         setExtrainfo(eten,request,errors);
 
         if (errors.size() == 0) {
@@ -27,6 +28,16 @@ public class Add extends RequestHandler{
         }
         request.setAttribute("errors",errors);
         return "Controller?command=ToAddJsp";
+    }
+
+    private void setEtenCategorie(Eten eten, HttpServletRequest request, List<String> errors) {
+        String categorie = request.getParameter("categorie");
+        try{
+            eten.setCategorie(categorie);
+        }
+        catch (Exception e){
+            errors.add(e.getMessage());
+        }
     }
 
     private void setEtenNaam(Eten eten, HttpServletRequest request, List<String> errors) {
@@ -52,7 +63,7 @@ public class Add extends RequestHandler{
     }
 
     public void setExtrainfo(Eten eten, HttpServletRequest request, List<String> errors){
-        String extraInfo = request.getParameter("extraInfo");
+        String extraInfo = request.getParameter("extrainfo");
         if (extraInfo != null) {
             try{
                 eten.setExtrainfo(extraInfo);

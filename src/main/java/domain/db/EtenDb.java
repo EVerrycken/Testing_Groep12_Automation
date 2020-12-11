@@ -2,6 +2,7 @@ package domain.db;
 
 import domain.model.Eten;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class EtenDb {
     private ArrayList<Eten> eten = new ArrayList<>();
@@ -22,8 +23,19 @@ public class EtenDb {
         }
         eten.removeIf(e->e.getNaam().equals(naam));
     }
+    public void removeAll(){
+        eten.removeAll(eten);
+    }
+    public Eten getEten(String naam){
+        for (Eten e : eten){
+            if (e.getNaam().equals(naam.toLowerCase())){
+                return e;
+            }
+        }
+        throw new DbException("Geen eten met gegeven naam gevonden");
+    }
 
-    public ArrayList<Eten> getEten(){
+    public ArrayList<Eten> getAllEten(){
         return eten;
     }
 }

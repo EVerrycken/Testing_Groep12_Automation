@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Home extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        ArrayList<Eten> etens = this.getEtenDb().getEten();
+        ArrayList<Eten> etens = this.getEtenDb().getAllEten();
         request.setAttribute("eten", etens);
         return "index.jsp";
     }

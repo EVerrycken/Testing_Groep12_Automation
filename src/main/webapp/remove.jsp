@@ -7,10 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Testing-Groep 12-Automation - Remove</title>
+    <link rel="stylesheet" type="text/css" href="css/stylsheet.css">
 </head>
 <body>
+<div id="container">
 <header>
-    <h1><span>Automation</span></h1>
     <nav>
         <ul>
             <li><a href="Controller?command=Home">Overview</a></li>
@@ -20,6 +21,7 @@
     </nav>
 </header>
 <main>
+    <h2>Remove</h2>
     <c:if test="${not empty errors}">
         <div class="alert-danger">
             <ul>
@@ -36,5 +38,6 @@
     </form>
 </main>
 <footer> Groep 12 - Automation &copy; Testing, UC Leuven-Limburg</footer>
+</div>
 </body>
 </html>
