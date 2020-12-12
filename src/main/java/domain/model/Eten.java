@@ -3,28 +3,41 @@ package domain.model;
 public class Eten {
     private String naam;
     private double prijs;
-    private String categorie;
     private String extrainfo;
-    private boolean vegetarisch;
+    private String categorie;
+    private boolean vegetarsich;
 
-    public Eten(String naam, double prijs, String categorie, String extrainfo, boolean vegetarisch){
+    public Eten(String naam, double prijs, String extrainfo, String categorie, boolean vegetarsich){
         setNaam(naam);
         setPrijs(prijs);
-        setCategorie(categorie);
         setExtrainfo(extrainfo);
-        this.vegetarisch = vegetarisch;
+        setCategorie(categorie);
+        setVegetarisch(vegetarsich);
+    }
+
+    public Eten(){
+    }
+
+    public void setVegetarisch(boolean vegetarsich) {
+        this.vegetarsich = vegetarsich;
+    }
+
+    public boolean isVegetarisch() {
+        return vegetarsich;
     }
 
     public void setCategorie(String categorie) {
-        if (categorie == null || categorie.trim().isEmpty()){
-            throw new DomainException("Categorie mag niet leeg zijn");
+        if(categorie.trim().isEmpty()) throw new DomainException("Categorie moet ingevuld zijn");
+        System.out.println(categorie);
+        if(categorie.equals("broodje") || categorie.equals("pasta") || categorie.equals("soep")){
+            this.categorie = categorie;
+        }else{
+            throw new DomainException("Vul een categorie in: broodje/pasta/soep");
         }
-        this.categorie = categorie;
     }
-    public String getCategorie(){
-        return this.categorie;
-    }
-    public Eten(){
+
+    public String getCategorie() {
+        return categorie;
     }
 
     public void setNaam(String naam) {
@@ -44,20 +57,15 @@ public class Eten {
         }
         this.prijs = prijs;
     }
-    public void setVegetarisch(boolean vegetarisch){
-        this.vegetarisch = vegetarisch;
-    }
-    public boolean getVegetarisch(){
-        return this.vegetarisch;
-    }
+
     public double getPrijs() {
         return this.prijs;
     }
 
     public void setExtrainfo(String extrainfo) {
-        /*if (extrainfo.trim().isEmpty()) {
+        if (extrainfo.trim().isEmpty()) {
             throw new DomainException("Extra info mag niet leeg zijn");
-        }*/
+        }
         this.extrainfo = extrainfo;
     }
 

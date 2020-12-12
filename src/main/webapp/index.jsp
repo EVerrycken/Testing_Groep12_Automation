@@ -39,7 +39,11 @@
                         <td><fmt:formatNumber type="number" minFractionDigits="2" value="${eten.prijs}"/> </td>
                         <td><c:out value='${eten.categorie}'/></td>
                         <td><c:out value='${eten.extrainfo}'/></td>
-                        <td><c:if test="${eten.vegetarisch == true}"><c:out value="Vegetarisch"></c:out></c:if></td>
+                        <td><c:choose>
+                            <c:when test="${eten.vegetarisch == true}"><c:out value="Vegetarisch"></c:out></c:when>
+                            <c:otherwise><c:out value="Niet vegetarisch"></c:out></c:otherwise>
+                        </c:choose>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

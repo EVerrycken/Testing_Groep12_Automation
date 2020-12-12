@@ -38,4 +38,8 @@ public class EtenDb {
     public ArrayList<Eten> getAllEten(){
         return eten;
     }
+
+    public ArrayList<Eten> getEtenSorted(){
+        return eten;
+    }
 }

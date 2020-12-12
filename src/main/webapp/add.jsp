@@ -37,7 +37,11 @@
         <p><label for="prijs">Prijs</label>
             <input type="number" id="prijs" name="prijs" required ></p>
         <p><label for="categorie">Categorie</label>
-            <input type="text" id="categorie" name="categorie" required ></p>
+        <select id="categorie" name="categorie">
+            <option value="broodje">broodje</option>
+            <option value="soep">soep</option>
+            <option value="pasta">pasta</option>
+        </select></p>
         <p><label for="extrainfo">Extra info</label>
             <input type="text" id="extrainfo" name="extrainfo" ></p>
         <p><label for="vegetarisch">Vegetarisch</label>
