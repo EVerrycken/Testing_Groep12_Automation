@@ -42,7 +42,6 @@ public class Add extends RequestHandler{
 
     private void setEtenCategorie(Eten eten, HttpServletRequest request, List<String> errors) {
         String categorie = request.getParameter("categorie");
-        System.out.println(categorie);
         try{
             eten.setCategorie(categorie);
         }

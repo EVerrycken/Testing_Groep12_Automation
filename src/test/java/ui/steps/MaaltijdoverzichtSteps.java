@@ -30,7 +30,7 @@ public class MaaltijdoverzichtSteps {
         //System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
         // windows: gebruik dubbele \\ om pad aan te geven
         // hint: zoek een werkende test op van web 2 ...
-        System.setProperty("webdriver.chrome.driver", "/Users/Arno/documents/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\thoma\\Documents\\Web3\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
     }
     @After
@@ -45,14 +45,15 @@ public class MaaltijdoverzichtSteps {
         page.setNaam("Broodje ham & kaas");
         page.setCategorie("Broodje");
         page.setPrijs(Double.toString(2.8));
-        page.setExtraInfo("");
+        page.setExtraInfo("geen info");
         page.submitValid();
 
         page = PageFactory.initElements(driver, AddPage.class);
         page.setNaam("Broodje eiersalade");
         page.setCategorie("Broodje");
         page.setPrijs(Double.toString(3.2));
-        page.setExtraInfo("Vegetarisch");
+        page.setExtraInfo("geen info");
+        page.setVegetarisch();
         page.submitValid();
     }
     @When("Jan op het menu kijkt")
@@ -99,7 +100,7 @@ public class MaaltijdoverzichtSteps {
                 page.setExtraInfo(l.get(3).toLowerCase());
             }
             if (l.get(4) != null){
-                page.setVegetarisch(l.get(4).toLowerCase());
+                page.setVegetarisch();
             }
             page.submitValid();
             page = PageFactory.initElements(driver, AddPage.class);
@@ -112,7 +113,7 @@ public class MaaltijdoverzichtSteps {
         page.setCategorie("Example");
         page.setPrijs("1");
         page.setExtraInfo(allergies.toLowerCase());
-        page.setVegetarisch(vegetarian.toLowerCase());
+        page.setVegetarisch();
         page.submitValid();
     }
 

@@ -3,10 +3,14 @@ package ui;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class OverviewPage extends Page {
+    @FindBy(id="sort")
+    WebElement link;
+
     public OverviewPage(WebDriver driver) {
         super(driver);
         driver.get(getPath()+"?command=Home");
@@ -49,5 +53,9 @@ public class OverviewPage extends Page {
     public boolean containsAlert(String alert){
         WebElement alertElement = driver.findElement(By.className("alert"));
         return alertElement.getText().equals(alert);
+    }
+
+    public void sortAllItems(){
+        link.click();
     }
 }

@@ -48,13 +48,8 @@ public class AddPage extends Page {
         extrainfoField.clear();
         extrainfoField.sendKeys(extrainfo);
     }
-    public void setVegetarisch(String vegetarisch){
-        if (vegetarischField.isSelected()){
-            vegetarischField.click();
-        }
-        if (!vegetarisch.trim().isEmpty()){
-            vegetarischField.click();
-        }
+    public void setVegetarisch(){
+        vegetarischField.click();
     }
     public void submitValid(){
         addButton.click();
