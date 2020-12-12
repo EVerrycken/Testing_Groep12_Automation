@@ -25,8 +25,6 @@ public class AddPage extends Page {
     private WebElement addButton;
 
 
-
-
     public AddPage(WebDriver driver) {
         super(driver);
         driver.get(getPath()+"?command=ToAddJsp");

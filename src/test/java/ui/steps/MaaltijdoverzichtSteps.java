@@ -43,14 +43,14 @@ public class MaaltijdoverzichtSteps {
     public void er_staan_maaltijden_op_het_menu(){
         AddPage page = PageFactory.initElements(driver, AddPage.class);
         page.setNaam("Broodje ham & kaas");
-        page.setCategorie("Broodje");
+        page.setCategorie("broodje");
         page.setPrijs(Double.toString(2.8));
         page.setExtraInfo("geen info");
         page.submitValid();
 
         page = PageFactory.initElements(driver, AddPage.class);
         page.setNaam("Broodje eiersalade");
-        page.setCategorie("Broodje");
+        page.setCategorie("broodje");
         page.setPrijs(Double.toString(3.2));
         page.setExtraInfo("geen info");
         page.setVegetarisch();
@@ -66,6 +66,7 @@ public class MaaltijdoverzichtSteps {
         assertTrue(((OverviewPage)currentPage).containsMealWithName("Broodje ham & kaas"));
         assertTrue(((OverviewPage)currentPage).containsMealWithName("Broodje eiersalade"));
     }
+
     @Given("er geen maaltijden op het menu staan")
     public void er_staan_geen_maaltijden_op_het_menu(){
         currentPage = PageFactory.initElements(driver, OverviewPage.class);
@@ -88,6 +89,7 @@ public class MaaltijdoverzichtSteps {
         assertTrue(((OverviewPage)currentPage).containsMealWithName("Broodje Veggylicious"));
         assertTrue(((OverviewPage)currentPage).containsMealWithName("Frikandel"));
     }
+
     @Given("dat er maaltijden zijn met extra informatie")
     public void datErMaaltijdenZijnMetExtraInformatie(DataTable table) {
         AddPage page = PageFactory.initElements(driver, AddPage.class);
@@ -106,6 +108,7 @@ public class MaaltijdoverzichtSteps {
             page = PageFactory.initElements(driver, AddPage.class);
         }
     }
+
     @Given("er is een {string} met informatie over {string} en of het {string} is")
     public void erIsEenMetInformatieOverEnOfHetIs(String meal, String allergies, String vegetarian) {
         AddPage page = PageFactory.initElements(driver, AddPage.class);
@@ -116,7 +119,6 @@ public class MaaltijdoverzichtSteps {
         page.setVegetarisch();
         page.submitValid();
     }
-
     @Then("zou Jan de {string} te zien moeten krijgen met informatie over {string} en {string}")
     public void zouJanDeTeZienMoetenKrijgenMetInformatieOverEn(String meal, String allergies, String vegetarian) {
         currentPage = PageFactory.initElements(driver, OverviewPage.class);
@@ -134,7 +136,6 @@ public class MaaltijdoverzichtSteps {
         page.setExtraInfo("");
         page.submitValid();
     }
-
     @Then("Ziet Jan de {string} met een {string}")
     public void zietJanDeMetEen(String meal, String price) {
         currentPage = PageFactory.initElements(driver, OverviewPage.class);

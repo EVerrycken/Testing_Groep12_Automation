@@ -48,6 +48,7 @@
                 </c:forEach>
             </table>
             <p><a href="Controller?command=Sort" id="sort">Sort eten per categorie</a></p>
+            <p><a href="Controller?command=RemoveAll" id="remove">Remove all eten</a></p>
         </c:when>
         <c:otherwise>
             <p class="alert">Er zijn momenteel geen beschikbare maaltijden op het menu</p>

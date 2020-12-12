@@ -9,7 +9,10 @@ import java.util.List;
 
 public class OverviewPage extends Page {
     @FindBy(id="sort")
-    WebElement link;
+    WebElement sortlink;
+
+    @FindBy(id="remove")
+    WebElement removelink;
 
     public OverviewPage(WebDriver driver) {
         super(driver);
@@ -56,6 +59,10 @@ public class OverviewPage extends Page {
     }
 
     public void sortAllItems(){
-        link.click();
+        sortlink.click();
+    }
+
+    public void removeAllItems(){
+        removelink.click();
     }
 }
