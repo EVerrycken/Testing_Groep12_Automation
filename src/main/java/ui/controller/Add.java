@@ -17,7 +17,7 @@ public class Add extends RequestHandler{
         setEtenPrijs(eten,request,errors);
         setEtenCategorie(eten, request, errors);
         setExtrainfo(eten,request,errors);
-
+        setVegetarisch(eten, request, errors);
         if (errors.size() == 0) {
             try {
                 etenDb.addEten(eten);
@@ -28,6 +28,16 @@ public class Add extends RequestHandler{
         }
         request.setAttribute("errors",errors);
         return "Controller?command=ToAddJsp";
+    }
+
+    private void setVegetarisch(Eten eten, HttpServletRequest request, List<String> errors) {
+        String vegetarisch = request.getParameter("vegetarisch");
+        if (vegetarisch != null){
+            eten.setVegetarisch(true);
+        }
+        else{
+            eten.setVegetarisch(false);
+        }
     }
 
     private void setEtenCategorie(Eten eten, HttpServletRequest request, List<String> errors) {

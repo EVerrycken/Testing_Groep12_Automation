@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -21,25 +22,32 @@
     </nav>
 </header>
 <main>
-    <c:if test="${eten != null}">
-        <table id="overview">
-            <h2>Eten overview</h2>
-            <tr>
-                <th>Naam</th>
-                <th>Prijs</th>
-                <th>Categorie</th>
-                <th>Extra info</th>
-            </tr>
-            <c:forEach var="eten" items="${eten}">
+    <c:choose>
+        <c:when test="${!empty eten}">
+            <table id="overview">
+                <h2>Eten overview</h2>
                 <tr>
-                    <td><c:out value='${eten.naam}'/></td>
-                    <td><c:out value='${eten.prijs}'/></td>
-                    <td><c:out value='${eten.categorie}'/></td>
-                    <td><c:out value='${eten.extrainfo}'/></td>
+                    <th>Naam</th>
+                    <th>Prijs</th>
+                    <th>Categorie</th>
+                    <th>Allergieën</th>
+                    <th>Vegetarisch</th>
                 </tr>
-            </c:forEach>
-        </table>
-    </c:if>
+                <c:forEach var="eten" items="${eten}">
+                    <tr>
+                        <td><c:out value='${eten.naam}'/></td>
+                        <td><fmt:formatNumber type="number" minFractionDigits="2" value="${eten.prijs}"/> </td>
+                        <td><c:out value='${eten.categorie}'/></td>
+                        <td><c:out value='${eten.extrainfo}'/></td>
+                        <td><c:if test="${eten.vegetarisch == true}"><c:out value="Vegetarisch"></c:out></c:if></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:when>
+        <c:otherwise>
+            <p class="alert">Er zijn momenteel geen beschikbare maaltijden op het menu</p>
+        </c:otherwise>
+    </c:choose>
 </main>
 <footer> Groep 12 - Automation &copy; Testing, UC Leuven-Limburg</footer>
 </div>

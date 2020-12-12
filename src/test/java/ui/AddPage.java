@@ -18,8 +18,13 @@ public class AddPage extends Page {
     @FindBy(id="extrainfo")
     private WebElement extrainfoField;
 
+    @FindBy(id="vegetarisch")
+    private WebElement vegetarischField;
+
     @FindBy(id="add")
     private WebElement addButton;
+
+
 
 
     public AddPage(WebDriver driver) {
@@ -42,6 +47,14 @@ public class AddPage extends Page {
     public void setExtraInfo(String extrainfo){
         extrainfoField.clear();
         extrainfoField.sendKeys(extrainfo);
+    }
+    public void setVegetarisch(String vegetarisch){
+        if (vegetarischField.isSelected()){
+            vegetarischField.click();
+        }
+        if (!vegetarisch.trim().isEmpty()){
+            vegetarischField.click();
+        }
     }
     public void submitValid(){
         addButton.click();

@@ -5,12 +5,14 @@ public class Eten {
     private double prijs;
     private String categorie;
     private String extrainfo;
+    private boolean vegetarisch;
 
-    public Eten(String naam, double prijs, String categorie, String extrainfo){
+    public Eten(String naam, double prijs, String categorie, String extrainfo, boolean vegetarisch){
         setNaam(naam);
         setPrijs(prijs);
         setCategorie(categorie);
         setExtrainfo(extrainfo);
+        this.vegetarisch = vegetarisch;
     }
 
     public void setCategorie(String categorie) {
@@ -42,7 +44,12 @@ public class Eten {
         }
         this.prijs = prijs;
     }
-
+    public void setVegetarisch(boolean vegetarisch){
+        this.vegetarisch = vegetarisch;
+    }
+    public boolean getVegetarisch(){
+        return this.vegetarisch;
+    }
     public double getPrijs() {
         return this.prijs;
     }

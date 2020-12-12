@@ -40,6 +40,9 @@
             <input type="text" id="categorie" name="categorie" required ></p>
         <p><label for="extrainfo">Extra info</label>
             <input type="text" id="extrainfo" name="extrainfo" ></p>
+        <p><label for="vegetarisch">Vegetarisch</label>
+            <input type="checkbox" id="vegetarisch" name="vegetarisch" value="true">
+        </p>
         <p><input type="submit" id="add" value="Add"></p>
     </form>
 </main>
