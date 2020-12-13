@@ -38,7 +38,10 @@
                         <td><c:out value='${eten.naam}'/></td>
                         <td><fmt:formatNumber type="number" minFractionDigits="2" value="${eten.prijs}"/> </td>
                         <td><c:out value='${eten.categorie}'/></td>
-                        <td><c:out value='${eten.extrainfo}'/></td>
+                        <td><c:choose>
+                            <c:when test="${empty eten.extrainfo}"><c:out value="Geen"/> </c:when>
+                            <c:otherwise><c:out value='${eten.extrainfo}'/></c:otherwise>
+                        </c:choose></td>
                         <td><c:choose>
                             <c:when test="${eten.vegetarisch == true}"><c:out value="Vegetarisch"></c:out></c:when>
                             <c:otherwise><c:out value="Niet vegetarisch"></c:out></c:otherwise>

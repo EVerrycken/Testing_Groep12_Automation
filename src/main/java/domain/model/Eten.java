@@ -63,9 +63,7 @@ public class Eten {
     }
 
     public void setExtrainfo(String extrainfo) {
-        if (extrainfo.trim().isEmpty()) {
-            throw new DomainException("Extra info mag niet leeg zijn");
-        }
+        // extra info mag leeg zijn
         this.extrainfo = extrainfo;
     }
 

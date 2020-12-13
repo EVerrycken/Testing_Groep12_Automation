@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class AddPage extends Page {
     @FindBy(id="naam")
@@ -39,8 +40,10 @@ public class AddPage extends Page {
         prijsField.sendKeys(prijs);
     }
     public void setCategorie(String categorie){
-        categorieField.clear();
-        categorieField.sendKeys(categorie);
+        Select select = new Select(categorieField);
+        select.selectByValue(categorie.toLowerCase());
+//        categorieField.clear();
+//        categorieField.sendKeys(categorie);
     }
     public void setExtraInfo(String extrainfo){
         extrainfoField.clear();

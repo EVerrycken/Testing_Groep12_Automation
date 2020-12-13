@@ -30,7 +30,7 @@ public class MaaltijdoverzichtSteps {
         //System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
         // windows: gebruik dubbele \\ om pad aan te geven
         // hint: zoek een werkende test op van web 2 ...
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\thoma\\Documents\\Web3\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arno\\Documents\\chromedriver.exe");
         driver = new ChromeDriver();
     }
     @After
@@ -113,7 +113,7 @@ public class MaaltijdoverzichtSteps {
     public void erIsEenMetInformatieOverEnOfHetIs(String meal, String allergies, String vegetarian) {
         AddPage page = PageFactory.initElements(driver, AddPage.class);
         page.setNaam(meal.toLowerCase());
-        page.setCategorie("Example");
+        page.setCategorie("Broodje");
         page.setPrijs("1");
         page.setExtraInfo(allergies.toLowerCase());
         page.setVegetarisch();
