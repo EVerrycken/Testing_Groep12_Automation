@@ -149,10 +149,6 @@ public class MaaltijdoverzichtSteps {
         assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Broodje mozzarella","broodje",3));
         assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Lasagne","pasta",4));
         assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Tomatensoep","soep",5));
-
-
-
-
     }
 
 
