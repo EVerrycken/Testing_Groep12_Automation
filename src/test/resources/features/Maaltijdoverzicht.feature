@@ -45,7 +45,7 @@ Feature: Maaltijdoverzicht
   Rule: Maaltijden worden gegroepeerd per categorie
     Scenario Outline: De maaltijden worden getoond per categorie
       Given er verschillende categorieën maaltijden zijn
-      When Jan het menu bekijkt
+      When Jan op het menu kijkt
       Then zal hij de maaltijden verdeeld zien per categorie
       Examples:
         | Broodjes        | Pasta   | Soepen      |

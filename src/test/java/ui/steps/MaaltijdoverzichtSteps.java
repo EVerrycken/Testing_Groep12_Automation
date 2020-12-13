@@ -26,7 +26,8 @@ public class MaaltijdoverzichtSteps {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arno\\Documents\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arno\\Documents\\chromedriver.exe"
+        //System.setProperty("webdriver.chrome.driver", "C:\Users\user1\Desktop\TI\Jaar 1 Sem 2\Web2\chromedriverR.exe");
         driver = new ChromeDriver();
     }
     @After
@@ -109,10 +110,48 @@ public class MaaltijdoverzichtSteps {
 
     @Given("er verschillende categorieën maaltijden zijn")
     public void er_verschillende_categorieën_maaltijden_zijn() {
+        AddPage page = PageFactory.initElements(driver, AddPage.class);
+        page.setNaam("Lasagne");
+        page.setCategorie("pasta");
+        page.setPrijs(Double.toString(4));
+        page.setExtraInfo("geen info");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, AddPage.class);
+        page.setNaam("Broodje martino");
+        page.setCategorie("broodje");
+        page.setPrijs(Double.toString(2.8));
+        page.setExtraInfo("geen info");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, AddPage.class);
+        page.setNaam("Tomatensoep");
+        page.setCategorie("soep");
+        page.setPrijs(Double.toString(3.2));
+        page.setExtraInfo("geen info");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, AddPage.class);
+        page.setNaam("Broodje mozzarella");
+        page.setCategorie("broodje");
+        page.setPrijs(Double.toString(2.5));
+        page.setExtraInfo("geen info");
+        page.setVegetarisch();
+        page.submitValid();
 
     }
     @Then("zal hij de maaltijden verdeeld zien per categorie")
     public void zal_hij_de_maaltijden_verdeeld_zien_per_categorie() {
+        assertEquals("Testing-Groep 12-Automation - Home", driver.getTitle());
+        OverviewPage page = PageFactory.initElements(driver, OverviewPage.class);
+        page.sortAllItems();
+        assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Broodje martino","broodje",2));
+        assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Broodje mozzarella","broodje",3));
+        assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Lasagne","pasta",4));
+        assertTrue(((OverviewPage)currentPage).containsMealWithCategoryOnPosition("Tomatensoep","soep",5));
+
+
+
 
     }
 

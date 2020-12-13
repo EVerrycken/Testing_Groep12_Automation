@@ -58,7 +58,15 @@ public class OverviewPage extends Page {
         return alertElement.getText().equals(alert);
     }
 
-    public void sortAllItems(){
+    public boolean containsMealWithCategoryOnPosition(String meal, String category, int position){
+        WebElement tr = driver.findElement(By.cssSelector("tr:nth-child("+position+")"));
+        if (tr.getText().toLowerCase().contains(meal.toLowerCase()) && (tr.getText().toLowerCase().contains(category))){
+            return true;
+        }
+        return false;
+    }
+
+        public void sortAllItems(){
         sortlink.click();
     }
 
