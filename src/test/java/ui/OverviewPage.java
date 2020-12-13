@@ -44,10 +44,10 @@ public class OverviewPage extends Page {
         return false;
     }
     public boolean containsMealWithPrice(String meal, String price){
-        price = price.replace(".", ",");
+        String price2 = price.replace(".", ",");
         List<WebElement> trs = driver.findElements(By.cssSelector("tr"));
         for (WebElement tr : trs){
-            if (tr.getText().toLowerCase().contains(meal.toLowerCase()) && (tr.getText().toLowerCase().contains(price))){
+            if (tr.getText().toLowerCase().contains(meal.toLowerCase()) && ((tr.getText().toLowerCase().contains(price)) || (tr.getText().toLowerCase().contains(price2)))){
                 return true;
             }
         }

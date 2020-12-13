@@ -25,8 +25,8 @@ public class MaaltijdoverzichtSteps {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arno\\Documents\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arno\\Documents\\chromedriver.exe");
         driver = new ChromeDriver();
     }
     @After
