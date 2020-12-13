@@ -32,9 +32,9 @@ Feature: Maaltijdoverzicht
 
   Rule: De prijs moet altijd getoond worden
     Scenario Outline: Klant ziet de prijs bij een maaltijd in het overzicht
-      Given Er is een "<Maaltijd>" met een "<Prijs>"
+      Given er is een "<Maaltijd>" met een "<Prijs>"
       When Jan op het menu kijkt
-      Then Ziet Jan de "<Maaltijd>" met een "<Prijs>"
+      Then ziet Jan de "<Maaltijd>" met een "<Prijs>"
       Examples:
         | Maaltijd                  | Prijs |
         | Broodje brie met walnoten | 2.60 |
@@ -45,7 +45,7 @@ Feature: Maaltijdoverzicht
   Rule: Maaltijden worden gegroepeerd per categorie
     Scenario Outline: De maaltijden worden getoond per categorie
       Given er verschillende categorieën maaltijden zijn
-      When “Jan” het menu bekijkt
+      When Jan het menu bekijkt
       Then zal hij de maaltijden verdeeld zien per categorie
       Examples:
         | Broodjes        | Pasta   | Soepen      |
