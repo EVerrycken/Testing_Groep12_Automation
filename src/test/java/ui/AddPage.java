@@ -28,7 +28,7 @@ public class AddPage extends Page {
 
     public AddPage(WebDriver driver) {
         super(driver);
-        driver.get(getPath()+"?command=ToAddJsp");
+        driver.get(getPath()+"?command=Add");
     }
 
     public void setNaam(String naam){
