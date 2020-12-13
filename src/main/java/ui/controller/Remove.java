@@ -10,6 +10,9 @@ import java.util.List;
 public class Remove extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+        if (request.getParameter("remove") == null){
+            return "remove.jsp";
+        }
         String naam = request.getParameter("naam");
         List<String> errors = new ArrayList<>();
         if (naam != null) {

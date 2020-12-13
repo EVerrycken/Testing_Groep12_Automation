@@ -15,8 +15,8 @@
     <nav>
         <ul>
             <li><a href="Controller?command=Home">Overview</a></li>
-            <li><a href="Controller?command=ToAddJsp">Add</a></li>
-            <li id="actual"><a href="Controller?command=ToRemoveJsp">Remove</a></li>
+            <li><a href="Controller?command=Add">Add</a></li>
+            <li id="actual"><a href="Controller?command=Remove">Remove</a></li>
         </ul>
     </nav>
 </header>
@@ -34,7 +34,7 @@
     <form method="POST" action="Controller?command=Remove" novalidate="novalidate">
         <p><label for="naam">Naam</label>
             <input type="text" id="naam" name="naam" required ></p>
-        <p><input type="submit" id="remove" value="Remove"></p>
+        <p><input type="submit" id="remove" name="remove" value="remove"></p>
     </form>
 </main>
 <footer> Groep 12 - Automation &copy; Testing, UC Leuven-Limburg</footer>

@@ -16,8 +16,8 @@
     <nav>
         <ul>
             <li id="actual"><a href="Controller?command=Home">Overview</a></li>
-            <li><a href="Controller?command=ToAddJsp">Add</a></li>
-            <li><a href="Controller?command=ToRemoveJsp">Remove</a></li>
+            <li><a href="Controller?command=Add">Add</a></li>
+            <li><a href="Controller?command=Remove">Remove</a></li>
         </ul>
     </nav>
 </header>

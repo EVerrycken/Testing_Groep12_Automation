@@ -11,6 +11,9 @@ import java.util.List;
 public class Add extends RequestHandler{
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+        if (request.getParameter("add") == null){
+            return "add.jsp";
+        }
         Eten eten = new Eten();
         List<String> errors = new ArrayList<>();
         setEtenNaam(eten,request,errors);

@@ -15,8 +15,8 @@
     <nav>
         <ul>
             <li><a href="Controller?command=Home">Overview</a></li>
-            <li id="actual"><a href="Controller?command=ToAddJsp">Add</a></li>
-            <li><a href="Controller?command=ToRemoveJsp">Remove</a></li>
+            <li id="actual"><a href="Controller?command=Add">Add</a></li>
+            <li><a href="Controller?command=Remove">Remove</a></li>
         </ul>
     </nav>
 </header>
@@ -47,7 +47,7 @@
         <p><label for="vegetarisch">Vegetarisch</label>
             <input type="checkbox" id="vegetarisch" name="vegetarisch" value="true">
         </p>
-        <p><input type="submit" id="add" value="Add"></p>
+        <p><input type="submit" id="add" name="add" value="add"></p>
     </form>
 </main>
 <footer> Groep 12 - Automation &copy; Testing, UC Leuven-Limburg</footer>
